@@ -38,6 +38,9 @@ window.onload = function() {
         }else if(move.down.isDown){
             player.body.velocity.y += 250;
             player.animations.play('down');
+        }else{
+            player.animations.stop();
+            player.frame = 0;
         }
     }
 };
