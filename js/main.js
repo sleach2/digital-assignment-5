@@ -5,7 +5,7 @@ window.onload = function() {
     
     function preload() {
         game.load.image( 'dirt', 'assets/dirt.png' );
-        game.load.spritesheet('player','assets/solider.png',50,50);
+        game.load.spritesheet('player','assets/solider.png',60,100);
     }
     
     var player;
