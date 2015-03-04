@@ -5,12 +5,16 @@ window.onload = function() {
     
     function preload() {
         game.load.image( 'dirt', 'assets/dirt.png' );
+        game.load.spritesheet('player','assets/solider.png',50,50);
     }
     
-    var bouncy;
+    var player;
     
     function create() {
         game.add.tileSprite(0,0,2000,2000,'dirt');
+        player=game.add.sprite(0,0,'player');
+        game.physics.enable(player,Phaser.Physics.ARCADE);
+        player.body.collideWorldBounds = true;
     }
     
     function update() {
