@@ -4,7 +4,7 @@ window.onload = function() {
     var game = new Phaser.Game( 1500, 700, Phaser.AUTO, 'game', { preload: preload, create: create, update: update } );
     
     function preload() {
-        game.load.image( 'dirt', 'assets/dirt.png' );
+        game.load.image( 'dirt', 'assets/dirt-path.png' );
     }
     
     var bouncy;
