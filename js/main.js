@@ -29,19 +29,19 @@ window.onload = function() {
         if (move.left.isDown){ 
             player.body.velocity.x -= 250; 
             //player.animations.play('left');
-            player.frame = 1;
+            player.frame = 5;
         }else if (move.right.isDown){ 
             player.body.velocity.x += 250;
             //player.animations.play('right');
-            player.frame = 2;
+            player.frame = 6;
         }else if(move.up.isDown){
             player.body.velocity.y -= 250;
             //player.animations.play('up');
-            player.frame = 3;
+            player.frame = 8;
         }else if(move.down.isDown){
             player.body.velocity.y += 250;
             //player.animations.play('down');
-            player.frame = 4;
+            player.frame = 9;
         }else{
             player.animations.stop();
             player.frame = 0;
