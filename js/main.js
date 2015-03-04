@@ -40,7 +40,7 @@ window.onload = function() {
             player.animations.play('down');
         }else{
             player.animations.stop();
-            player.frame = 0;
+            //player.frame = 0;
         }
     }
 };
