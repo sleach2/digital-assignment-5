@@ -6,7 +6,7 @@ window.onload = function() {
     function preload() {
         game.load.image( 'dirt', 'assets/dirt.png' );
         //game.load.spritsheet('player','assets/solider.png',72,81);
-        game.load.image('player', 'assets/swattds.png');
+        game.load.image('player', 'assets/man.png');
         game.load.image('bullet','assets/bullet.png');
     }
     
@@ -41,7 +41,7 @@ window.onload = function() {
     function update() {
         player.body.velocity.x=0;
         player.body.velocity.y=0;
-        sprite.rotation = game.physics.arcade.angleToPointer(sprite);
+        player.rotation = game.physics.arcade.angleToPointer(player);
         if (move.left.isDown){ 
             player.body.velocity.x -= 250; 
             //player.animations.play('left');
