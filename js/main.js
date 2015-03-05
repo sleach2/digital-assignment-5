@@ -45,32 +45,12 @@ window.onload = function() {
         player.rotation = game.physics.arcade.angleToPointer(player);
         if (move.left.isDown){ 
             player.body.velocity.x -= 250; 
-            //player.animations.play('left');
-            //player.frame = 5;
         }else if (move.right.isDown){ 
             player.body.velocity.x += 250;
-            //player.animations.play('right');
-            //player.frame = 6;
-        }else if(move.up.isDown){
+        }if(move.up.isDown){
             player.body.velocity.y -= 250;
-            //player.animations.play('up');
-            //player.frame = 8;
         }else if(move.down.isDown){
             player.body.velocity.y += 250;
-            //player.animations.play('down');
-            //player.frame = 9;
-        }else if(move.down.isDown && move.right.isDown){
-            player.body.velocity.x += 250; 
-            player.body.velocity.y += 250;
-        }else if(move.down.isDown && move.left.isDown){
-            player.body.velocity.x -= 250; 
-            player.body.velocity.y += 250;
-        }else if(move.up.isDown && move.left.isDown){
-            player.body.velocity.x -= 250; 
-            player.body.velocity.y -= 250;
-        }else if(move.up.isDown && move.right.isDown){
-            player.body.velocity.x += 250; 
-            player.body.velocity.y -= 250;
         }
         if (game.input.activePointer.isDown){
             fire();
