@@ -60,20 +60,18 @@ window.onload = function() {
             player.animations.stop();
             player.frame = 18;
         }
-
         if (game.input.activePointer.isDown){
-        fire();
+            fire();
         }
     }
 
     function fire () {
         if (game.time.now > nextFire && bullets.countDead() > 0){
-        nextFire = game.time.now + fireRate;
-        var bullet = bullets.getFirstExists(false);
-        bullet.reset(turret.x, turret.y);
-        bullet.rotation = game.physics.arcade.moveToPointer(bullet, 1000, game.input.activePointer, 500);
+            nextFire = game.time.now + fireRate;
+            var bullet = bullets.getFirstExists(false);
+            bullet.reset(player.x, player.y);
+            bullet.rotation = game.physics.arcade.moveToPointer(bullet, 1000, game.input.activePointer, 500);
         }
-
     }
 
 };
