@@ -16,10 +16,10 @@ window.onload = function() {
         player=game.add.sprite(0,0,'player');
         game.physics.enable(player,Phaser.Physics.ARCADE);
         player.body.collideWorldBounds = true;
-        player.animations.add('left', [13,14,15,16,17,18], 10, true);
+        player.animations.add('left', [12,13,14,15,16,17], 10, true);
         player.animations.add('right', [19,20,21,22,23,24], 10, true);
-        player.animations.add('up', [7], 10, true);
-        player.animations.add('down', [1], 10, true);
+        player.animations.add('up', [7,8,9,10,11], 10, true);
+        player.animations.add('down', [1,2,3,4,5], 10, true);
         move = game.input.keyboard.createCursorKeys();
     }
     
