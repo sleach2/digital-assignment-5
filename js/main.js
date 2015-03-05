@@ -44,7 +44,7 @@ window.onload = function() {
             //player.frame = 9;
         }else{
             player.animations.stop();
-            player.frame = 0;
+            player.frame = 18;
         }
     }
 };
