@@ -5,7 +5,7 @@ window.onload = function() {
     
     function preload() {
         game.load.image( 'dirt', 'assets/dirt.png' );
-        game.load.spritesheet('player','assets/solider.png',72,81);
+        game.load.spritesheet('player','assets/swattds.png',72,81);
         game.load.image('bullet','assets/bullet.png');
     }
     
@@ -21,10 +21,10 @@ window.onload = function() {
         player=game.add.sprite(0,0,'player');
         game.physics.enable(player,Phaser.Physics.ARCADE);
         player.body.collideWorldBounds = true;
-        player.animations.add('left', [12,13,14,15,16,17], 10, true);
+        /*player.animations.add('left', [12,13,14,15,16,17], 10, true);
         player.animations.add('right', [19,20,21,22,23,24], 10, true);
         player.animations.add('up', [7,8,9,10,11], 10, true);
-        player.animations.add('down', [1,2,3,4,5], 10, true);
+        player.animations.add('down', [1,2,3,4,5], 10, true);*/
         move = game.input.keyboard.createCursorKeys();
         bullets = game.add.group();
         bullets.enableBody = true;
@@ -40,25 +40,26 @@ window.onload = function() {
     function update() {
         player.body.velocity.x=0;
         player.body.velocity.y=0;
+        sprite.rotation = game.physics.arcade.angleToPointer(sprite);
         if (move.left.isDown){ 
             player.body.velocity.x -= 250; 
-            player.animations.play('left');
+            //player.animations.play('left');
             //player.frame = 5;
         }else if (move.right.isDown){ 
             player.body.velocity.x += 250;
-            player.animations.play('right');
+            //player.animations.play('right');
             //player.frame = 6;
         }else if(move.up.isDown){
             player.body.velocity.y -= 250;
-            player.animations.play('up');
+            //player.animations.play('up');
             //player.frame = 8;
         }else if(move.down.isDown){
             player.body.velocity.y += 250;
-            player.animations.play('down');
+            //player.animations.play('down');
             //player.frame = 9;
         }else{
-            player.animations.stop();
-            player.frame = 18;
+            //player.animations.stop();
+            //player.frame = 18;
         }
         if (game.input.activePointer.isDown){
             fire();
@@ -69,7 +70,7 @@ window.onload = function() {
         if (game.time.now > nextFire && bullets.countDead() > 0){
             nextFire = game.time.now + fireRate;
             var bullet = bullets.getFirstExists(false);
-            bullet.reset(player.x+50, player.y+50);
+            bullet.reset(player.x+50, player.y+52);
             bullet.rotation = game.physics.arcade.moveToPointer(bullet, 1000, game.input.activePointer, 500);
         }
     }
