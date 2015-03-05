@@ -59,9 +59,18 @@ window.onload = function() {
             player.body.velocity.y += 250;
             //player.animations.play('down');
             //player.frame = 9;
-        }else{
-            //player.animations.stop();
-            //player.frame = 18;
+        }else if(move.down.isDown && move.right.isDown){
+            player.body.velocity.x += 250; 
+            player.body.velocity.y += 250;
+        }else if(move.down.isDown && move.left.isDown){
+            player.body.velocity.x -= 250; 
+            player.body.velocity.y += 250;
+        }else if(move.up.isDown && move.left.isDown){
+            player.body.velocity.x -= 250; 
+            player.body.velocity.y -= 250;
+        }else if(move.up.isDown && move.right.isDown){
+            player.body.velocity.x += 250; 
+            player.body.velocity.y -= 250;
         }
         if (game.input.activePointer.isDown){
             fire();
