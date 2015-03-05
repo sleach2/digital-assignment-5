@@ -41,7 +41,7 @@ window.onload = function() {
     function update() {
         player.body.velocity.x=0;
         player.body.velocity.y=0;
-        player.rotation = game.physics.arcade.angleToPointer(player);
+        //player.rotation = game.physics.arcade.angleToPointer(player);
         if (move.left.isDown){ 
             player.body.velocity.x -= 250; 
             //player.animations.play('left');
