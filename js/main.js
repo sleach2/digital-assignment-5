@@ -26,14 +26,14 @@ window.onload = function() {
         player.animations.add('up', [7,8,9,10,11], 10, true);
         player.animations.add('down', [1,2,3,4,5], 10, true);*/
         move = game.input.keyboard.createCursorKeys();
-        bullets = game.add.group();
+        /*bullets = game.add.group();
         bullets.enableBody = true;
         bullets.physicsBodyType = Phaser.Physics.ARCADE;
         bullets.createMultiple(30, 'bullet', 0, false);
         bullets.setAll('anchor.x', 0.5);
         bullets.setAll('anchor.y', 0.5);
         bullets.setAll('outOfBoundsKill', true);
-        bullets.setAll('checkWorldBounds', true);
+        bullets.setAll('checkWorldBounds', true);*/
 
     }
     
@@ -61,18 +61,18 @@ window.onload = function() {
             //player.animations.stop();
             //player.frame = 18;
         }
-        if (game.input.activePointer.isDown){
+        /*if (game.input.activePointer.isDown){
             fire();
-        }
+        }*/
     }
 
-    function fire () {
+   /* function fire () {
         if (game.time.now > nextFire && bullets.countDead() > 0){
             nextFire = game.time.now + fireRate;
             var bullet = bullets.getFirstExists(false);
             bullet.reset(player.x+50, player.y+52);
             bullet.rotation = game.physics.arcade.moveToPointer(bullet, 1000, game.input.activePointer, 500);
         }
-    }
+    }*/
 
 };
