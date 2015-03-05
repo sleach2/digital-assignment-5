@@ -18,7 +18,7 @@ window.onload = function() {
         player.body.collideWorldBounds = true;
         player.animations.add('left', [15,16,17,18,19,20], 10, true);
         player.animations.add('right', [22,23,24,25,26,27], 10, true);
-        player.animations.add('up', [8,9,10,11,12,13], 10, true);
+        player.animations.add('up', [7,8,9,10,11,12], 10, true);
         player.animations.add('down', [1,2,3,4,5,6], 10, true);
         move = game.input.keyboard.createCursorKeys();
     }
