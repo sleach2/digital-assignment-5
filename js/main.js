@@ -72,7 +72,7 @@ window.onload = function() {
         if (game.time.now > nextFire && bullets.countDead() > 0){
             nextFire = game.time.now + fireRate;
             var bullet = bullets.getFirstExists(false);
-            bullet.reset(player.x+10, player.y+8);
+            bullet.reset(player.x+15, player.y+10);
             bullet.rotation = game.physics.arcade.moveToPointer(bullet, 1000, game.input.activePointer, 500);
         }
     }
