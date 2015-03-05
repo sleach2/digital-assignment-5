@@ -28,20 +28,20 @@ window.onload = function() {
         player.body.velocity.y=0;
         if (move.left.isDown){ 
             player.body.velocity.x -= 250; 
-            //player.animations.play('left');
-            player.frame = 5;
+            player.animations.play('left');
+            //player.frame = 5;
         }else if (move.right.isDown){ 
             player.body.velocity.x += 250;
-            //player.animations.play('right');
-            player.frame = 6;
+            player.animations.play('right');
+            //player.frame = 6;
         }else if(move.up.isDown){
             player.body.velocity.y -= 250;
-            //player.animations.play('up');
-            player.frame = 8;
+            player.animations.play('up');
+            //player.frame = 8;
         }else if(move.down.isDown){
             player.body.velocity.y += 250;
-            //player.animations.play('down');
-            player.frame = 9;
+            player.animations.play('down');
+            //player.frame = 9;
         }else{
             player.animations.stop();
             player.frame = 0;
