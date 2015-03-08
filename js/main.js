@@ -46,9 +46,7 @@ window.onload = function() {
 
         enemies=game.add.group();
         enemies.enableBody=true;
-        for(var i=0; i<10; i++){
-            spawn();
-        }
+        spawn(0);
 
         timer = game.time.create(false);
         timer.loop(10000, spawn, this);
@@ -57,8 +55,10 @@ window.onload = function() {
         scoreText = game.add.text(16, 16, 'score: '+score, { fontSize: '32px', fill: '#000' });
     }
 
-    function spawn(){
-        enemies.create(game.rnd.integerInRange(700,game.world.width),game.rnd.integerInRange(0,game.world.height-50),'a');
+    function spawn(e){
+        for(var i=0; i<10+e; i++){
+            enemies.create(game.rnd.integerInRange(700,game.world.width),game.rnd.integerInRange(0,game.world.height-50),'a');
+        }
     }
 
     function kill(b,e){
@@ -85,6 +85,7 @@ window.onload = function() {
             fire();
         }
         enemies.forEachAlive(function(enemy){ game.physics.arcade.moveToObject(enemy, {x:player.x, y:player.y},150,this);},this);
+        scoreText.text = 'score: ' + score;
     }
 
     function fire () {
