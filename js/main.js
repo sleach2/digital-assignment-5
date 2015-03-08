@@ -50,7 +50,7 @@ window.onload = function() {
         spawn();
 
         timer = game.time.create(false);
-        timer.loop(5000, spawn(), this);
+        timer.loop(5000, spawn, this);
         timer.start();
 
         scoreText = game.add.text(16, 16, 'score: '+score, { fontSize: '32px', fill: '#000' });
