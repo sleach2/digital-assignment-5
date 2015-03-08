@@ -49,7 +49,7 @@ window.onload = function() {
         spawn(0);
 
         timer = game.time.create(false);
-        timer.loop(10000, spawn, this);
+        timer.loop(10000, spawn(0), this);
         timer.start();
 
         scoreText = game.add.text(16, 16, 'score: '+score, { fontSize: '32px', fill: '#000' });
