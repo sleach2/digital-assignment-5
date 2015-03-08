@@ -25,7 +25,7 @@ window.onload = function() {
     function create() {
         game.add.tileSprite(0,0,2000,2000,'dirt');
 
-        player=game.add.sprite(0,0,'player');
+        player=game.add.sprite(0,100,'player');
         game.physics.enable(player,Phaser.Physics.ARCADE);
         player.body.collideWorldBounds = true;
         player.anchor.setTo(0.5,0.5);
@@ -58,7 +58,7 @@ window.onload = function() {
     }
 
     function spawn(){
-        enemies.create(game.rnd.integerInRange(0,game.world.width),game.rnd.integerInRange(0,game.world.height-150),'enemy');
+        enemies.create(game.rnd.integerInRange(0,game.world.width),game.rnd.integerInRange(0,game.world.height-150),'a');
     }
     
     function update() {
