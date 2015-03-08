@@ -51,17 +51,24 @@ window.onload = function() {
         }
 
         timer = game.time.create(false);
-        timer.loop(1000, spawn, this);
+        timer.loop(10000, spawn, this);
         timer.start();
 
         scoreText = game.add.text(16, 16, 'score: '+score, { fontSize: '32px', fill: '#000' });
     }
 
     function spawn(){
-        enemies.create(game.rnd.integerInRange(700,game.world.width),game.rnd.integerInRange(0,game.world.height-150),'a');
+        enemies.create(game.rnd.integerInRange(700,game.world.width),game.rnd.integerInRange(0,game.world.height-50),'a');
+    }
+
+    function kill(b,e){
+        b.kill()
+        e.kill()
+        score+=10;
     }
     
     function update() {
+        game.physics.arcade.overlap(bullets, enemies, kill, null, this);
         player.body.velocity.x=0;
         player.body.velocity.y=0;
         player.rotation = game.physics.arcade.angleToPointer(player);
@@ -85,7 +92,7 @@ window.onload = function() {
             nextFire = game.time.now + fireRate;
             var bullet = bullets.getFirstExists(false);
             bullet.reset(player.x, player.y);
-            bullet.rotation = game.physics.arcade.moveToPointer(bullet, 500, game.input.activePointer, 0);
+            bullet.rotation = game.physics.arcade.moveToPointer(bullet, 1000, game.input.activePointer, 0);
         }
     }
 
