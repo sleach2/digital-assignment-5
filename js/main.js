@@ -58,7 +58,7 @@ window.onload = function() {
     }
 
     function spawn(){
-        enemies.create(game.rnd.integerInRange(0,game.world.width),game.rnd.integerInRange(0,game.world.height-150),'a');
+        enemies.create(game.rnd.integerInRange(700,game.world.width),game.rnd.integerInRange(0,game.world.height-150),'a');
     }
     
     function update() {
@@ -77,6 +77,7 @@ window.onload = function() {
         if (game.input.activePointer.isDown){
             fire();
         }
+        enemies.forEachAlive(function(enemy){ game.physics.arcade.moveToObject(enemy, {x:player.x, y:player.y},150,this);},this);
     }
 
     function fire () {
