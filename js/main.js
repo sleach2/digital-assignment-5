@@ -8,7 +8,7 @@ window.onload = function() {
         //game.load.spritsheet('player','assets/solider.png',72,81);
         game.load.image('player', 'assets/man.PNG');
         game.load.image('bullet','assets/bullet.png');
-        game.load.image('a','assets/player.png');
+        game.load.image('a','assets/player1.png');
     }
     
     var player;
