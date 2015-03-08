@@ -18,6 +18,8 @@ window.onload = function() {
     var nextFire = 0;
     var timer;
     var score=0;
+    var scoreText;
+    var enemies;
 
     
     function create() {
