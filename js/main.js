@@ -107,7 +107,7 @@ window.onload = function() {
     function end(h,j){
         timer.stop();
         enemies.forEachAlive(function(enemy){enemy.kill();},this);
-        move.stop();
+        game.input.disabled=true;
         //game.add.text(750,350, 16, 'Game Over', { fontSize: '64px', fill: '#000' });
     }
 };
