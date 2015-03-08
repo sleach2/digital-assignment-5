@@ -50,7 +50,7 @@ window.onload = function() {
         spawn();
 
         timer = game.time.create(false);
-        timer.loop(4999, enemies.callAllExists(total,true), this);
+        timer.loop(4999, total, this);
         timer.loop(5000, spawn, this);
         timer.start();
 
@@ -58,7 +58,7 @@ window.onload = function() {
     }
 
     function total(){
-        yui+=1;
+        enemies.forEachAlive(function(){ yui+=1;},this);
     }
 
     function spawn(){
