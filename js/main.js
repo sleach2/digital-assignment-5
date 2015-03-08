@@ -50,17 +50,21 @@ window.onload = function() {
         spawn();
 
         timer = game.time.create(false);
+        timer.loop(4999, enemies.callAllExists(total,true), this);
         timer.loop(5000, spawn, this);
         timer.start();
 
         scoreText = game.add.text(16, 16, 'score: '+score, { fontSize: '32px', fill: '#000' });
     }
 
+    function total(){
+        yui+=1;
+    }
+
     function spawn(){
         for(var i=0; i<10+yui; i++){
             enemies.create(game.rnd.integerInRange(700,game.world.width),game.rnd.integerInRange(0,game.world.height-50),'a');
         }
-        yui+=10;
     }
 
     function kill(b,e){
