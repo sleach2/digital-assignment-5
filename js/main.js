@@ -8,6 +8,7 @@ window.onload = function() {
         //game.load.spritsheet('player','assets/solider.png',72,81);
         game.load.image('player', 'assets/man.PNG');
         game.load.image('bullet','assets/bullet.png');
+        game.load.image('a','assets/player.png');
     }
     
     var player;
@@ -15,10 +16,13 @@ window.onload = function() {
     var bullets;
     var fireRate = 100;
     var nextFire = 0;
+    var timer;
+    var score=0;
 
     
     function create() {
         game.add.tileSprite(0,0,2000,2000,'dirt');
+
         player=game.add.sprite(0,0,'player');
         game.physics.enable(player,Phaser.Physics.ARCADE);
         player.body.collideWorldBounds = true;
@@ -28,6 +32,7 @@ window.onload = function() {
         player.animations.add('up', [7,8,9,10,11], 10, true);
         player.animations.add('down', [1,2,3,4,5], 10, true);*/
         move = game.input.keyboard.createCursorKeys();
+
         bullets = game.add.group();
         bullets.enableBody = true;
         bullets.physicsBodyType = Phaser.Physics.ARCADE;
@@ -37,6 +42,21 @@ window.onload = function() {
         bullets.setAll('outOfBoundsKill', true);
         bullets.setAll('checkWorldBounds', true);
 
+        enemies=game.add.group();
+        enemies.enableBody=true;
+        for(var i=0; i<10; i++){
+            spawn();
+        }
+
+        timer = game.time.create(false);
+        timer.loop(1000, spawn, this);
+        timer.start();
+
+        scoreText = game.add.text(16, 16, 'score: '+score, { fontSize: '32px', fill: '#000' });
+    }
+
+    function spawn(){
+        enemies.create(game.rnd.integerInRange(0,game.world.width),game.rnd.integerInRange(0,game.world.height-150),'enemy');
     }
     
     function update() {
