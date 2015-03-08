@@ -75,6 +75,7 @@ window.onload = function() {
     
     function update() {
         game.physics.arcade.overlap(bullets, enemies, kill, null, this);
+        game.physics.arcade.overlap(enemies,player,end,null,this);
         player.body.velocity.x=0;
         player.body.velocity.y=0;
         player.rotation = game.physics.arcade.angleToPointer(player);
@@ -103,4 +104,9 @@ window.onload = function() {
         }
     }
 
+    function end(){
+        timer.stop();
+        enemies.forEachAlive(function(enemy){enemy.kill();},this);
+        scoreText = game.add.text(game.world.width/2,game.world.height/2, 16, 'Game Over', { fontSize: '32px', fill: '#000' });
+    }
 };
