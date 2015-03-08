@@ -20,6 +20,7 @@ window.onload = function() {
     var score=0;
     var scoreText;
     var enemies;
+    var yui=0;
 
     
     function create() {
@@ -46,19 +47,20 @@ window.onload = function() {
 
         enemies=game.add.group();
         enemies.enableBody=true;
-        spawn(0);
+        spawn();
 
         timer = game.time.create(false);
-        timer.loop(10000, spawn(0), this);
+        timer.loop(5000, spawn(), this);
         timer.start();
 
         scoreText = game.add.text(16, 16, 'score: '+score, { fontSize: '32px', fill: '#000' });
     }
 
-    function spawn(e){
-        for(var i=0; i<10+e; i++){
+    function spawn(){
+        for(var i=0; i<10+yui; i++){
             enemies.create(game.rnd.integerInRange(700,game.world.width),game.rnd.integerInRange(0,game.world.height-50),'a');
         }
+        yui+=10;
     }
 
     function kill(b,e){
